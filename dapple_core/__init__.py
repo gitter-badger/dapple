@@ -4,6 +4,7 @@ import cogapp, hashlib, json, os, re, shutil, subprocess, sys, tempfile
 import ruamel.yaml as yaml
 import dapple.plugins
 from . import install
+from . import chain_fork
 
 from ethertdd import set_gas_limit, EvmContract
 from dapple.cli import cli, click
@@ -492,12 +493,3 @@ def stage(stagedir):
     dapp = load_dapp()
     dapp.build()
     dapp.write_binaries(stagedir)
-
-@cli.command()
-@click.argument("env")
-def chain(env):
-    if env == "testnet":
-        subprocess.call("geth --datadir devdatadir --networkid 42 --unlock 0 --password devdatadir/pass.txt --mine console", shell=True)
-    else:
-        click.echo("Unknown chain environment")
-

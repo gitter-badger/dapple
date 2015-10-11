@@ -43,6 +43,7 @@ setup(
         'pbkdf2',
         'pycrypto',
         'pyethash',
+        'pyethapp',
         'pysha3',
         'PyYAML',
         'repoze.lru',
