@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Plugins - Dapple Docs</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Plugins";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Dapple Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../quickstart/">Quickstart</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../constants/">Constants</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../dappfile/">dappfile</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../dapplerc/">.dapplerc</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Plugins</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#plugins">Plugins</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#creating-subcommands">Creating subcommands</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#dappleplugins">dapple.plugins</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../core/">Core Package</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">Glossary</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Dapple Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Plugins</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="plugins">Plugins</h2>
+<p>Every aspect of Dapple's core behavior is defined in terms of overrideable plugins. Plugin discovery is achieved via the <code>plugins</code> file in your package's <code>.dapple</code> directory. The <code>plugins</code> file is just a newline-delimited list of Python modules that Dapple will import each time it runs, before attempting to parse any arguments or commands. To write plugin, just write a Python module that does all its setup in its <code>__init__.py</code> file.</p>
+<p>We have provided a few hooks into Dapple to facilitate plugin development:</p>
+<ul>
+<li><code>dapple.cli</code> - Contains a <code>cli</code> object, which is an instance of the <a href="http://click.pocoo.org/5/api/#click.Group">Group</a> class, and a <code>click</code> variable, which is a reference to the <a href="http://click.pocoo.org/5/api">Click</a> module Dapple uses.</li>
+<li><code>dapple.plugins</code> - Programmatic access to different functions defined by plugins.</li>
+</ul>
+<h1 id="creating-subcommands">Creating subcommands</h1>
+<p>The <code>cli</code> object in <code>dapple.cli</code> allows you to register new Dapple commands. For example, to create a command called <code>hello</code> that just prints out <code>Hello World!</code>:</p>
+<pre><code>from dapple.cli import cli
+
+@cli.command()
+def hello():
+    print "Hello World!"
+</code></pre>
+<p>For more information, check out Click's documentation on the <a href="http://click.pocoo.org/5/api/#click.Group">Group</a> class. The <code>cli</code> object is nothing more than an instance of that class.</p>
+<h1 id="dappleplugins">dapple.plugins</h1>
+<p><code>dapple.plugins.registry</code> is a module-level instance of the <a href="https://github.com/MakerDAO/dapple/blob/master/dapple/plugins.py#L7"><code>PluginRegistry</code></a> class. This is hte registry plugins are registered with by default. Provides <code>load</code> and <code>register</code> functions, which the module-level <code>register</code> decorator and <code>load</code> function wrap.</p>
+<p><code>dapple.plugins.load</code> is a function that takes a plugin function name and returns the function registered under that name.</p>
+<p><code>dapple.plugins.register</code> is a decorator that takes a name to register the decorated function under. By convention, the name should be prefixed with the plugin's name, like so:</p>
+<pre><code>@dapple.plugins.register('core.dappfile')
+function load_dappfile(package_path='', env=None):
+    ... # plugin code
+</code></pre>
+<p>Any plugin loaded afterward can then get a reference to the function through <code>dapple.plugins.load</code>:</p>
+<pre><code>load_dappfile = dapple.plugins.load('core.dappfile')
+dappfile = load_dappfile()
+</code></pre>
+<p>You may also override plugin functions by registering new functions by the same name after the original function has been registered:</p>
+<pre><code>@dapple.plugins.register('core.dappfile')
+function my_dappfile(package_path='', env=None):
+    # In case you want to use the original function somewhere.
+    original_func = dapple.plugins.load('core.dappfile')
+    dapple.plugins.registry.register('core.old_dappfile', original_func)
+    ... # your altered plugin code
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../core/" class="btn btn-neutral float-right" title="Core Package"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../dapplerc/" class="btn btn-neutral" title=".dapplerc"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../dapplerc/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../core/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>

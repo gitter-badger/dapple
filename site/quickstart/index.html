@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Quickstart - Dapple Docs</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Quickstart";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Dapple Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Quickstart</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#quickstart">Quickstart</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#a-note-before-starting">A note before starting</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#installation">Installation</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#package-creation">Package creation</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#package-installation">Package installation</a></li>
+                
+            
+                <li class="toctree-l3"><a href="#package-publishing">Package publishing</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../constants/">Constants</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../dappfile/">dappfile</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../dapplerc/">.dapplerc</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../plugins/">Plugins</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../core/">Core Package</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">Glossary</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Dapple Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Quickstart</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h2 id="quickstart">Quickstart</h2>
+<h1 id="a-note-before-starting">A note before starting</h1>
+<p>Throughout this documentation, I use words in <angle brackets> to denote where you should fill in values of your own choosing. I have endeavored to make the angle-bracketed phrases self-explanatory and consistent. For example, I use <mypackage> to denote the name you choose for your package. Anywhere you see <mypackage>, you should be able to fill in the same value you chose initially and do alright.</p>
+<h1 id="installation">Installation</h1>
+<p>On the command line:</p>
+<pre><code>git clone https://github.com/MakerDAO/dapple
+cd dapple
+python setup.py install
+</code></pre>
+<h1 id="package-creation">Package creation</h1>
+<p>On the command line:</p>
+<pre><code>mkdir &lt;mypackage&gt;
+cd &lt;mypackage&gt;
+dapple init
+</code></pre>
+<p>Dapple packages are defined by the presence of a <code>.dapple</code> directory containing a <a href="../dappfile/"><code>dappfile</code></a> YAML file. <code>dapple init</code> creates this structure for you. Edit <code>.dapple/dappfile</code> in your <mypackage> directory to, at minimum, list your package's name and version. By default, the <code>core</code> package is included as a dependency of all new packages. The <code>core</code> package contains the contracts that Dapple relies on to run tests on your smart contract package.</p>
+<h1 id="package-installation">Package installation</h1>
+<p>From within your package's root directory:</p>
+<pre><code>dapple install &lt;somepackage&gt; --save
+</code></pre>
+<p>The <code>--save</code> flag tells Dapple that it should add the package to your dependencies map in your dappfile. Without this flag, Dapple would install the package without adding it to your dappfile. Generally, Dapple tries to make it obvious when it's about to change your dappfile. Running <code>install</code> sans the <code>--save</code> flag lets you try packages locally without making a mess of your dappfile in the process. </p>
+<p>To remove packages, use <code>uninstall</code>:</p>
+<pre><code>dapple uninstall &lt;somepackage&gt; --save
+</code></pre>
+<h1 id="package-publishing">Package publishing</h1>
+<p>Publishing a package is as simple as:</p>
+<pre><code>dapple publish
+</code></pre>
+<p>You must, however, have a copy of <a href="http://ipfs.io/">IPFS</a> running and your <a href="../dapplerc/">.dapplerc</a> pointed at it to publish anything. By default, Dapple connects to a public read-only gateway maintained by the IPFS developers to allow package installation without a local copy of IPFS. Publishing cannot be done through such a gateway.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../constants/" class="btn btn-neutral float-right" title="Constants"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href=".." class="btn btn-neutral" title="Home"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href=".." style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../constants/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
