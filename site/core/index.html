@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Core Package - Dapple Docs</title>
+  
+
+  <link rel="shortcut icon" href="../img/favicon.ico">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css'>
+
+  <link rel="stylesheet" href="../css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="../css/highlight.css">
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Core Package";
+  </script>
+  
+  <script src="../js/jquery-2.1.1.min.js"></script>
+  <script src="../js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="../js/highlight.pack.js"></script>
+  <script src="../js/theme.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <a href=".." class="icon icon-home"> Dapple Docs</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+        <ul class="current">
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="..">Home</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../quickstart/">Quickstart</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../constants/">Constants</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../dappfile/">dappfile</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../dapplerc/">.dapplerc</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../plugins/">Plugins</a>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 current">
+        <a class="current" href="./">Core Package</a>
+        
+            <ul>
+            
+                <li class="toctree-l3"><a href="#core-package">Core Package</a></li>
+                
+                    <li><a class="toctree-l4" href="#coredebugsol">core/debug.sol</a></li>
+                
+                    <li><a class="toctree-l4" href="#coretestsol">core/test.sol</a></li>
+                
+            
+            </ul>
+        
+    </li>
+<li>
+          
+            <li>
+    <li class="toctree-l1 ">
+        <a class="" href="../glossary/">Glossary</a>
+        
+    </li>
+<li>
+          
+        </ul>
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="..">Dapple Docs</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="..">Docs</a> &raquo;</li>
+    
+      
+    
+    <li>Core Package</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="core-package">Core Package</h1>
+<p>By default, Dapple adds a dependency on a package called <code>core</code> to all new Dapple packages. This package provides simple contracts that can be extended to take advantage of some of Dapple's features.</p>
+<h2 id="coredebugsol">core/debug.sol</h2>
+<h3 id="contract-debug">contract Debug</h3>
+<p>This contract provides events that produce logging output during testing. (I.e., when running <code>dapple test</code>.)</p>
+<h4 id="logsbytes-value">logs(bytes value)</h4>
+<p>Logs a <code>string</code> or a <code>bytes</code> value (which is then interpreted as a string).</p>
+<h4 id="log_boolbool-value">log_bool(bool value)</h4>
+<p>Logs a boolean value.</p>
+<h4 id="log_named_boolbytes32-extra_data-bool-value">log_named_bool(bytes32 extra_data, bool value)</h4>
+<p>Logs a boolean value along with a 32-byte string.</p>
+<h4 id="log_uintuint-value">log_uint(uint value)</h4>
+<p>Logs an unsigned integer value.</p>
+<h4 id="log_named_uintbytes32-extra_data-uint-value">log_named_uint(bytes32 extra_data, uint value)</h4>
+<p>Logs an unsigned integer value along with a 32-byte string.</p>
+<h4 id="log_intint-value">log_int(int value)</h4>
+<p>Logs an integer value.</p>
+<h4 id="log_named_intbytes32-extra_data-int-value">log_named_int(bytes32 extra_data, int value)</h4>
+<p>Logs an integer value along with a 32-byte string.</p>
+<h4 id="log_addressaddress-value">log_address(address value)</h4>
+<p>Logs an address.</p>
+<h4 id="log_named_addressbytes32-extra_data-address-value">log_named_address(bytes32 extra_data, address value)</h4>
+<p>Logs an address value along with a 32-byte string.</p>
+<h4 id="log_bytesbytes-value">log_bytes(bytes value)</h4>
+<p>Logs a <code>bytes</code> value.</p>
+<h4 id="log_named_bytesbytes32-extra_data-bytes-value">log_named_bytes(bytes32 extra_data, bytes value)</h4>
+<p>Logs a <code>bytes</code> value along with a 32-byte string.</p>
+<h4 id="log_bytes9113293bytes132-value">log_bytes[1..32](bytes[1..32] value)</h4>
+<p>This entry is for the 32 logging functions numbered consecutively from <code>log_bytes1</code> to <code>log_bytes32</code>. Each logs a value consisting of the specified number of bytes.</p>
+<h4 id="log_named_bytes9113293bytes32-extra_data-bytes132-value">log_named_bytes[1..32](bytes32 extra_data, bytes[1..32] value)</h4>
+<p>This entry is for the 32 logging functions numbered consecutively from <code>log_named_bytes1</code> to <code>log_named_bytes32</code>. Each logs a value consisting of the specified number of bytes, along with a 32-byte string.</p>
+<h4 id="string-formatting">String formatting</h4>
+<p>Dapple supports combining the output of multiple log events via <code>%s</code>. For example, this code:</p>
+<pre><code>logs(&quot;%s + %s = %s&quot;);
+log_uint(2);
+log_uint(2);
+log_uint(4);
+</code></pre>
+
+<p>produces this output:</p>
+<pre><code>2 + 2 = 4
+</code></pre>
+
+<h2 id="coretestsol">core/test.sol</h2>
+<h3 id="contract-test-is-debug">contract Test is Debug</h3>
+<p>Test contracts must inherit from this contract. It provides some basic assertion-related functions in addition to the events defined in its <code>Debug</code> parent type.</p>
+<h4 id="fail">fail()</h4>
+<p>Immediately fail the test.</p>
+<h4 id="asserttruebool-value-bytes32-error_message">assertTrue(bool value[, bytes32 error_message])</h4>
+<p>Fails the test if <code>value</code> is <code>false</code>. If <code>error_message</code> is provided, includes it in the logging output upon failure. </p>
+<h4 id="assertfalsebool-value-bytes32-error_message">assertFalse(bool value[, bytes32 error_message])</h4>
+<p>Fails the test if <code>value</code> is <code>true</code>. If <code>error_message</code> is provided, includes it in the logging output upon failure. </p>
+<h4 id="asserteq0bytes-value_1-bytes-value_2-bytes32-error_message">assertEq0(bytes value_1, bytes value_2, bytes32 error_message)</h4>
+<p>Fails the test if the two <code>bytes</code> values are not equal. (Has to be equal in both length and value to pass.)</p>
+<h4 id="asserteq9113293bytes132-value_1-bytes132-value_2-bytes32-error_message">assertEq[1..32](bytes[1..32] value_1, bytes[1..32] value_2[, bytes32 error_message])</h4>
+<p>This entry is for the 32 functions defined for comparing specific byte-length types, numbered consecutively from <code>assertEq1</code> to <code>assertEq32</code>. Fails the test if the two values are not equal and optionally takes an error message to show upon failure.</p>
+<h4 id="assertequint-value_1-uint-value_2-bytes32-error_message">assertEq(uint value_1, uint value_2[, bytes32 error_message])</h4>
+<p>Fails the test if the two unsigned integers are not equal. Optionally takes a bytes-32 error message to log if the test fails.</p>
+<h4 id="asserteqint-value_1-int-value_2-bytes32-error_message">assertEq(int value_1, int value_2[, bytes32 error_message])</h4>
+<p>Fails the test if the two integers are not equal. Optionally takes a bytes-32 error message to log if the test fails.</p>
+<h4 id="asserteqbool-value_1-bool-value_2-bytes32-error_message">assertEq(bool value_1, bool value_2[, bytes32 error_message])</h4>
+<p>Fails the test if the two booleans are not equal. Optionally takes a bytes-32 error message to log if the test fails.</p>
+<h4 id="asserteqaddress-value_1-address-value_2-bytes32-error_message">assertEq(address value_1, address value_2[, bytes32 error_message])</h4>
+<p>Fails the test if the two addresses are not equal. Optionally takes a bytes-32 error message to log if the test fails.</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../glossary/" class="btn btn-neutral float-right" title="Glossary"/>Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../plugins/" class="btn btn-neutral" title="Plugins"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="http://www.mkdocs.org">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+	  
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../plugins/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../glossary/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+
+</body>
+</html>
